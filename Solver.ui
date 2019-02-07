@@ -1,0 +1,1376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>810</width>
+    <height>610</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>689</width>
+    <height>610</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>810</width>
+    <height>611</height>
+   </size>
+  </property>
+  <property name="cursor">
+   <cursorShape>PointingHandCursor</cursorShape>
+  </property>
+  <property name="windowTitle">
+   <string>VivaCubeSolver</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>icon.ico</normaloff>icon.ico</iconset>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);
+background-color: rgb(0, 0, 0);
+background-color: rgb(144, 144, 144);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="solve">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>520</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>SOLVE</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="wb1">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>20</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="wb2">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>20</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="wb3">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>20</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="wb4">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>70</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="wb5">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>70</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="wb6">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>70</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="wb7">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>120</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="wb8">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>120</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="wb9">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>120</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="gb1">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>170</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(0, 128, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="gb2">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>170</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(0, 128, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="gb3">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>170</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(0, 128, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="gb4">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>220</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(0, 128, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="gb5">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>220</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(0, 128, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="gb6">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>220</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(0, 128, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="gb7">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>270</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(0, 128, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="gb8">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>270</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(0, 128, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="gb9">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>270</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(0, 128, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="yb1">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>320</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="yb2">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>320</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="yb3">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>320</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="yb4">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>370</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="yb5">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>370</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="yb6">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>370</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="yb7">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>420</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="yb8">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>420</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="yb9">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>420</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ob3">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>170</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 165, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ob6">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>220</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 165, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ob9">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>270</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 165, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ob2">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>170</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 165, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ob5">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>220</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 165, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ob8">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>270</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 165, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ob1">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>170</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 165, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ob4">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>220</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 165, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ob7">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>270</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 165, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="rb1">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>170</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 0, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="rb4">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>220</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 0, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="rb7">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>270</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 0, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="rb2">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>170</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 0, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="rb5">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>220</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 0, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="rb8">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>270</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 0, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="rb3">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>170</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 0, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="rb6">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>220</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 0, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="rb9">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>270</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 0, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="bb1">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>170</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(0, 0, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="bb4">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>220</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(0, 0, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="bb7">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>270</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(0, 0, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="bb2">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>170</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(0, 0, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="bb5">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>220</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(0, 0, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="bb8">
+    <property name="geometry">
+     <rect>
+      <x>550</x>
+      <y>270</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(0, 0, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="bb3">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>170</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(0, 0, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="bb6">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>220</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(0, 0, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="bb9">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>270</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(0, 0, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="reset">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>490</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>RESET</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="red">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>490</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 0, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string>RED</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="blue">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>490</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(0, 0, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string>BLUE</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="orange">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>490</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 165, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string>ORANGE</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="green">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>520</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(0, 128, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string>GREEN</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="yellow">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>520</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 0);
+}</string>
+    </property>
+    <property name="text">
+     <string>YELLOW</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="white">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>520</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton {
+    background-color: rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string>WHITE</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="autor">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>570</y>
+      <width>271</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Created by Vivaldo Roque * All rights reserved</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Scramble">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>362</y>
+      <width>411</width>
+      <height>221</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>IBeamCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel {
+    background-color: rgb(255, 255, 255);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="wordWrap">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>10</y>
+      <width>121</width>
+      <height>128</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
