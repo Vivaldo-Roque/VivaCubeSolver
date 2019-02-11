@@ -1,0 +1,303 @@
+<WhiteButton@Button>:
+	spacing: 10
+	size: 40,40
+	background_color: 225,225,225,1
+	size_hint_x: None
+	size_hint_y: None
+	
+<GreenButton@Button>:
+	spacing: 10
+	size: 40,40
+	background_color: 0,128,0,1
+	size_hint_x: None
+	size_hint_y: None
+	
+<YellowButton@Button>:
+	spacing: 10
+	size: 40,40
+	background_color: 225,225,0,1
+	size_hint_x: None
+	size_hint_y: None
+	
+<RedButton@Button>:
+	spacing: 10
+	size: 40,40
+	background_color: 225,0,0,1
+	size_hint_x: None
+	size_hint_y: None
+	
+<BlueButton@Button>:
+	spacing: 10
+	size: 40,40
+	background_color: 0,0,225,1
+	size_hint_x: None
+	size_hint_y: None
+	
+<OrangeButton@Button>:
+	spacing: 10
+	size: 40,40
+	size_hint_x: None
+	size_hint_y: None
+    background_color: 255, 0, 255,1
+
+<RelativeLayout>:
+	
+	BoxLayout:
+	
+		orientation: 'vertical'
+		
+		GridLayout:
+	
+			padding: 10
+			spacing: 10
+			cols:9
+			
+			WhiteButton:
+				id: wb1
+				on_press: root.ChangeColor("wb1",1)
+			WhiteButton:
+				id: wb2
+				on_press: root.ChangeColor("wb2",2)
+			WhiteButton:
+				id: wb3
+				on_press: root.ChangeColor("wb3",3)
+			GreenButton:
+				id: gb1
+				on_press: root.ChangeColor("gb1",19)
+			GreenButton:
+				id: gb2
+				on_press: root.ChangeColor("gb2",20)
+			GreenButton:
+				id: gb3
+				on_press: root.ChangeColor("gb3",21)
+			YellowButton:
+				id: yb1
+				on_press: root.ChangeColor("yb1",28)
+			YellowButton:
+				id: yb2
+				on_press: root.ChangeColor("yb2",29)
+			YellowButton:
+				id: yb3
+				on_press: root.ChangeColor("yb3",30)
+			
+			
+			WhiteButton:
+				id: wb4
+				on_press: root.ChangeColor("wb4",4)
+			WhiteButton:
+				id: wb5
+				text:'U'
+				bold: True
+				color:[0,0,0,1]
+				on_press: root.GetColor("white")
+			WhiteButton:
+				id: wb6
+				on_press: root.ChangeColor("wb6",6)
+			GreenButton:
+				id: gb4
+				on_press: root.ChangeColor("gb4",22)
+			GreenButton:
+				id: gb5
+				text:'F'
+				bold: True
+				color:[0,0,0,1]
+				on_press: root.GetColor("green")
+			GreenButton:
+				id: gb6
+				on_press: root.ChangeColor("gb6",24)
+			YellowButton:
+				id: yb4
+				on_press: root.ChangeColor("yb4",31)
+			YellowButton:
+				id: yb5
+				text:'D'
+				bold: True
+				color:[0,0,0,1]
+				on_press: root.GetColor("yellow")
+			YellowButton:
+				id: yb6
+				on_press: root.ChangeColor("yb6",33)
+			
+			
+			WhiteButton:
+				id: wb7
+				on_press: root.ChangeColor("wb7",7)
+			WhiteButton:
+				id: wb8
+				on_press: root.ChangeColor("wb8",8)
+			WhiteButton:
+				id: wb9
+				on_press: root.ChangeColor("wb9",9)
+			GreenButton:
+				id: gb7
+				on_press: root.ChangeColor("gb7",25)
+			GreenButton:
+				id: gb8
+				on_press: root.ChangeColor("gb8",26)
+			GreenButton:
+				id: gb9
+				on_press: root.ChangeColor("gb9",27)
+			YellowButton:
+				id: yb7
+				on_press: root.ChangeColor("yb7",34)
+			YellowButton:
+				id: yb8
+				on_press: root.ChangeColor("yb8",35)
+			YellowButton:
+				id: yb9
+				on_press: root.ChangeColor("yb9",36)
+			
+			
+			RedButton:
+				id: rb1
+				on_press: root.ChangeColor("rb1",10)
+			RedButton:
+				id: rb2
+				on_press: root.ChangeColor("rb2",11)
+			RedButton:
+				id: rb3
+				on_press: root.ChangeColor("rb3",12)
+			BlueButton:
+				id: bb1
+				on_press: root.ChangeColor("bb1",46)
+			BlueButton:
+				id: bb2
+				on_press: root.ChangeColor("bb2",47)
+			BlueButton:
+				id: bb3
+				on_press: root.ChangeColor("bb3",48)
+			OrangeButton:
+				id: ob1
+				on_press: root.ChangeColor("ob1",37)
+			OrangeButton:
+				id: ob2
+				on_press: root.ChangeColor("ob2",38)
+			OrangeButton:
+				id: ob3
+				on_press: root.ChangeColor("ob3",39)
+			
+			
+			RedButton:
+				id: rb4
+				on_press: root.ChangeColor("rb4",13)
+			RedButton:
+				id: rb5
+				text:'R'
+				bold: True
+				color:[0,0,0,1]
+				on_press: root.GetColor("red")
+			RedButton:
+				id: rb6
+				on_press: root.ChangeColor("rb6",15)
+			BlueButton:
+				id: bb4
+				on_press: root.ChangeColor("bb4",49)
+			BlueButton:
+				id: bb5
+				text:'B'
+				bold: True
+				color:[0,0,0,1]
+				on_press: root.GetColor("blue")
+			BlueButton:
+				id: bb6
+				on_press: root.ChangeColor("bb6",51)
+			OrangeButton:
+				id: ob4
+				on_press: root.ChangeColor("ob4",40)
+			OrangeButton:
+				id: ob5
+				text:'L'
+				bold: True
+				color:[0,0,0,1]
+				on_press: root.GetColor("magenta")
+			OrangeButton:
+				id: ob6
+				on_press: root.ChangeColor("ob6",42)
+				
+			RedButton:
+				id: rb7
+				on_press: root.ChangeColor("rb7",16)
+			RedButton:
+				id: rb8
+				on_press: root.ChangeColor("rb8",17)
+			RedButton:
+				id: rb9
+				on_press: root.ChangeColor("rb9",18)
+			BlueButton:
+				id: bb7
+				on_press: root.ChangeColor("bb7",52)
+			BlueButton:
+				id: bb8
+				on_press: root.ChangeColor("bb8",53)
+			BlueButton:
+				id: bb9
+				on_press: root.ChangeColor("bb9",54)
+			OrangeButton:
+				id: ob7
+				on_press: root.ChangeColor("ob7",43)
+			OrangeButton:
+				id: ob8
+				on_press: root.ChangeColor("ob8",44)
+			OrangeButton:
+				id: ob9
+				on_press: root.ChangeColor("ob9",45)
+		
+		BoxLayout:
+		
+			orientation: 'horizontal'
+			Label:
+				id: scramble
+				text: '' 
+				bold: True
+				color:[0,0,0,1]
+				size: 500,200
+				background_color: 225, 225, 225, 1
+				canvas.before:
+					Color:
+						rgba: self.background_color
+					Rectangle:
+						pos: self.pos
+						size: self.size
+				size_hint_x: None
+				size_hint_y: None
+				
+			BoxLayout:
+			
+				orientation: 'vertical'
+				Button:
+					id: solve
+					on_press: root.Solve()
+					text: 'SOLVE'
+					size: 300,100
+					size_hint_x: None
+					size_hint_y: None
+					
+				Button:
+					id: reset
+					text: 'RESET'
+					on_press: root.Reset()
+					size:300,100
+					size_hint_x: None
+					size_hint_y: None
+				
+	BoxLayout:
+	
+		orientation:'vertical'
+		pos: 600,240
+		
+		Image:
+			size_hint_x: None
+			size_hint_y: None
+			spacing: 10
+			source:'back.png'
+		
+		Label:
+			size_hint_x: None
+			size_hint_y: None
+			text: 'Created by Vivaldo Roque \n* ALL RIGTHS RESERVED'
+			spacing: 10
+		
+			
+		
+		
+				
