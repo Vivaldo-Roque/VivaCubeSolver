@@ -1,0 +1,4 @@
+rootProject.name = "VivaCubeSolver"
+include ':app'
+include ':OpencvLib420'
+include ':animcubeandroid'

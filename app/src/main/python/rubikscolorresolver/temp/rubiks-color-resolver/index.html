@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+div.clear {
+    clear: both;
+}
+
+div.clear_left {
+    clear: left;
+}
+
+div.side {
+    margin: 10px;
+    float: left;
+}
+
+div.col1,
+div.col2 {
+    float: left;
+}
+
+div.col3 {
+    margin-left: 80px;
+}
+div#upper,
+div#down {
+    margin-left: 150px;
+}
+
+span.square {
+    width: 40px;
+    height: 40px;
+    white-space-collapsing: discard;
+    display: inline-block;
+    color: black;
+    font-weight: bold;
+    line-height: 40px;
+    text-align: center;
+}
+
+div.square {
+    width: 40px;
+    height: 40px;
+    color: black;
+    font-weight: bold;
+    line-height: 40px;
+    text-align: center;
+}
+
+div.square span {
+  display:        inline-block;
+  vertical-align: middle;
+  line-height:    normal;
+}
+
+div#colormapping {
+    float: left;
+}
+
+div#anchorsquares {
+    margin-left: 350px;
+}
+
+</style>
+<title>CraneCuber</title>
+</head>
+<body>
+<h1>JSON Input</h1>
+<pre>{"1": [173, 159, 43], "2": [252, 111, 57], "3": [235, 241, 76], "4": [251, 102, 70], "5": [170, 199, 251], "6": [42, 165, 251], "7": [71, 170, 83], "8": [30, 151, 237], "9": [207, 26, 75], "10": [22, 144, 230], "11": [248, 234, 76], "12": [235, 44, 88], "13": [142, 180, 249], "14": [252, 121, 68], "15": [238, 42, 89], "16": [248, 100, 61], "17": [202, 29, 78], "18": [33, 166, 252], "19": [148, 196, 251], "20": [207, 42, 89], "21": [231, 249, 91], "22": [147, 192, 251], "23": [91, 208, 116], "24": [192, 237, 239], "25": [183, 31, 78], "26": [84, 203, 104], "27": [217, 249, 80], "28": [44, 146, 240], "29": [242, 243, 86], "30": [140, 228, 134], "31": [98, 178, 98], "32": [238, 40, 92], "33": [252, 247, 108], "34": [96, 176, 103], "35": [217, 214, 249], "36": [69, 175, 251], "37": [252, 113, 48], "38": [53, 176, 249], "39": [252, 158, 86], "40": [198, 28, 63], "41": [48, 174, 250], "42": [59, 187, 251], "43": [168, 203, 249], "44": [225, 252, 72], "45": [114, 222, 104], "46": [149, 171, 248], "47": [252, 107, 59], "48": [233, 36, 85], "49": [71, 166, 88], "50": [210, 222, 74], "51": [252, 117, 64], "52": [142, 168, 243], "53": [84, 180, 99], "54": [252, 110, 54]}</pre>
+<h1>Input RGB values</h1>
+<div class='side' id='upper'>
+    <div class='square col1' title='RGB (173, 159, 43), Lab (6351.5922, -601.0179, 4863.503)' style='background-color: #ad9f2b;'><span>01</span></div>
+    <div class='square col2' title='RGB (252, 111, 57), Lab (6289.2421, 4362.6487, 4693.6253)' style='background-color: #fc6f39;'><span>02</span></div>
+    <div class='square col3' title='RGB (235, 241, 76), Lab (8682.7692, -1755.8097, 6275.3771)' style='background-color: #ebf14c;'><span>03</span></div>
+    <div class='square col1' title='RGB (251, 102, 70), Lab (6159.1464, 4700.3754, 4045.0483)' style='background-color: #fb6646;'><span>04</span></div>
+    <div class='square col2' title='RGB (170, 199, 251), Lab (7624.5016, 199.8817, -2446.1281)' style='background-color: #aac7fb;'><span>05</span></div>
+    <div class='square col3' title='RGB (42, 165, 251), Lab (6410.6727, -87.3494, -4374.6043)' style='background-color: #2aa5fb;'><span>06</span></div>
+    <div class='square col1' title='RGB (71, 170, 83), Lab (6142.8923, -3975.0366, 3098.1431)' style='background-color: #47aa53;'><span>07</span></div>
+    <div class='square col2' title='RGB (30, 151, 237), Lab (5996.2359, 116.9027, -4379.4989)' style='background-color: #1e97ed;'><span>08</span></div>
+    <div class='square col3' title='RGB (207, 26, 75), Lab (4793.4842, 5490.9764, 2062.9598)' style='background-color: #cf1a4b;'><span>09</span></div>
+</div>
+<div class='clear'></div>
+<div class='side' id='left'>
+    <div class='square col1' title='RGB (22, 144, 230), Lab (5786.8603, 223.3738, -4382.7503)' style='background-color: #1690e6;'><span>10</span></div>
+    <div class='square col2' title='RGB (248, 234, 76), Lab (8615.3461, -1012.6579, 6242.9999)' style='background-color: #f8ea4c;'><span>11</span></div>
+    <div class='square col3' title='RGB (235, 44, 88), Lab (5373.126, 5910.4111, 2220.3072)' style='background-color: #eb2c58;'><span>12</span></div>
+    <div class='square col1' title='RGB (142, 180, 249), Lab (7049.3096, 430.0255, -3256.4312)' style='background-color: #8eb4f9;'><span>13</span></div>
+    <div class='square col2' title='RGB (252, 121, 68), Lab (6446.043, 4002.5698, 4423.5467)' style='background-color: #fc7944;'><span>14</span></div>
+    <div class='square col3' title='RGB (238, 42, 89), Lab (5414.5819, 6008.4259, 2232.1522)' style='background-color: #ee2a59;'><span>15</span></div>
+    <div class='square col1' title='RGB (248, 100, 61), Lab (6083.6051, 4660.0009, 4328.4149)' style='background-color: #f8643d;'><span>16</span></div>
+    <div class='square col2' title='RGB (202, 29, 78), Lab (4720.6744, 5367.2613, 1793.1214)' style='background-color: #ca1d4e;'><span>17</span></div>
+    <div class='square col3' title='RGB (33, 166, 252), Lab (6431.1511, -142.1847, -4389.0375)' style='background-color: #21a6fc;'><span>18</span></div>
+</div>
+<div class='side' id='front'>
+    <div class='square col1' title='RGB (148, 196, 251), Lab (7448.01, -148.5394, -2727.0953)' style='background-color: #94c4fb;'><span>19</span></div>
+    <div class='square col2' title='RGB (207, 42, 89), Lab (4890.7227, 5339.8877, 1448.8233)' style='background-color: #cf2a59;'><span>20</span></div>
+    <div class='square col3' title='RGB (231, 249, 91), Lab (8845.6903, -2152.3565, 5986.2805)' style='background-color: #e7f95b;'><span>21</span></div>
+    <div class='square col1' title='RGB (147, 192, 251), Lab (7352.2201, 15.9643, -2875.6128)' style='background-color: #93c0fb;'><span>22</span></div>
+    <div class='square col2' title='RGB (91, 208, 116), Lab (7246.542, -4421.5363, 3078.394)' style='background-color: #5bd074;'><span>23</span></div>
+    <div class='square col3' title='RGB (192, 237, 239), Lab (8558.5303, -1184.3089, -486.8165)' style='background-color: #c0edef;'><span>24</span></div>
+    <div class='square col1' title='RGB (183, 31, 78), Lab (4394.5923, 4933.9129, 1301.9675)' style='background-color: #b71f4e;'><span>25</span></div>
+    <div class='square col2' title='RGB (84, 203, 104), Lab (7084.9069, -4539.0452, 3375.0105)' style='background-color: #54cb68;'><span>26</span></div>
+    <div class='square col3' title='RGB (217, 249, 80), Lab (8757.9076, -2670.6371, 6198.0475)' style='background-color: #d9f950;'><span>27</span></div>
+</div>
+<div class='side' id='right'>
+    <div class='square col1' title='RGB (44, 146, 240), Lab (5903.8149, 529.0443, -4667.6208)' style='background-color: #2c92f0;'><span>28</span></div>
+    <div class='square col2' title='RGB (242, 243, 86), Lab (8777.8477, -1556.1789, 6094.5868)' style='background-color: #f2f356;'><span>29</span></div>
+    <div class='square col3' title='RGB (140, 228, 134), Lab (7931.3441, -3785.9359, 3219.4412)' style='background-color: #8ce486;'><span>30</span></div>
+    <div class='square col1' title='RGB (98, 178, 98), Lab (6454.286, -3477.7086, 2858.7571)' style='background-color: #62b262;'><span>31</span></div>
+    <div class='square col2' title='RGB (238, 40, 92), Lab (5409.3409, 6048.9156, 2071.6089)' style='background-color: #ee285c;'><span>32</span></div>
+    <div class='square col3' title='RGB (252, 247, 108), Lab (8945.7736, -1271.6202, 5569.5936)' style='background-color: #fcf76c;'><span>33</span></div>
+    <div class='square col1' title='RGB (96, 176, 103), Lab (6400.4338, -3390.7648, 2570.5484)' style='background-color: #60b067;'><span>34</span></div>
+    <div class='square col2' title='RGB (217, 214, 249), Lab (8221.4924, 660.8021, -1421.8232)' style='background-color: #d9d6f9;'><span>35</span></div>
+    <div class='square col3' title='RGB (69, 175, 251), Lab (6692.946, -382.8813, -3925.2115)' style='background-color: #45affb;'><span>36</span></div>
+</div>
+<div class='side' id='back'>
+    <div class='square col1' title='RGB (252, 113, 48), Lab (6313.7776, 4267.3591, 5022.3087)' style='background-color: #fc7130;'><span>37</span></div>
+    <div class='square col2' title='RGB (53, 176, 249), Lab (6682.824, -616.4364, -3850.3859)' style='background-color: #35b0f9;'><span>38</span></div>
+    <div class='square col3' title='RGB (252, 158, 86), Lab (7094.9394, 2497.9535, 4384.8576)' style='background-color: #fc9e56;'><span>39</span></div>
+    <div class='square col1' title='RGB (198, 28, 63), Lab (4625.0391, 5234.1119, 2450.9941)' style='background-color: #c61c3f;'><span>40</span></div>
+    <div class='square col2' title='RGB (48, 174, 250), Lab (6631.7598, -521.969, -3977.6544)' style='background-color: #30aefa;'><span>41</span></div>
+    <div class='square col3' title='RGB (59, 187, 251), Lab (6967.3374, -1028.0275, -3495.2196)' style='background-color: #3bbbfb;'><span>42</span></div>
+    <div class='square col1' title='RGB (168, 203, 249), Lab (7697.3588, -72.7268, -2244.3381)' style='background-color: #a8cbf9;'><span>43</span></div>
+    <div class='square col2' title='RGB (225, 252, 72), Lab (8869.3015, -2550.78, 6532.269)' style='background-color: #e1fc48;'><span>44</span></div>
+    <div class='square col3' title='RGB (114, 222, 104), Lab (7660.3967, -4535.1011, 4082.7054)' style='background-color: #72de68;'><span>45</span></div>
+</div>
+<div class='clear'></div>
+<div class='side' id='down'>
+    <div class='square col1' title='RGB (149, 171, 248), Lab (6880.2173, 984.1584, -3471.924)' style='background-color: #95abf8;'><span>46</span></div>
+    <div class='square col2' title='RGB (252, 107, 59), Lab (6233.6383, 4517.213, 4568.0359)' style='background-color: #fc6b3b;'><span>47</span></div>
+    <div class='square col3' title='RGB (233, 36, 85), Lab (5296.4951, 5966.5223, 2270.3481)' style='background-color: #e92455;'><span>48</span></div>
+    <div class='square col1' title='RGB (71, 166, 88), Lab (6038.3456, -3783.2516, 2757.9323)' style='background-color: #47a658;'><span>49</span></div>
+    <div class='square col2' title='RGB (210, 222, 74), Lab (8089.989, -1855.0929, 5709.3837)' style='background-color: #d2de4a;'><span>50</span></div>
+    <div class='square col3' title='RGB (252, 117, 64), Lab (6382.1375, 4149.2287, 4517.2086)' style='background-color: #fc7540;'><span>51</span></div>
+    <div class='square col1' title='RGB (142, 168, 243), Lab (6757.4008, 861.9895, -3435.1898)' style='background-color: #8ea8f3;'><span>52</span></div>
+    <div class='square col2' title='RGB (84, 180, 99), Lab (6465.7017, -3851.9499, 2820.4538)' style='background-color: #54b463;'><span>53</span></div>
+    <div class='square col3' title='RGB (252, 110, 54), Lab (6273.2002, 4393.6483, 4787.0564)' style='background-color: #fc6e36;'><span>54</span></div>
+</div>
+<div class='clear'></div>
+<div id="colormapping">
+<h1>Side => Color Mapping</h1>
+<ul>
+<li>U => Wh</li>
+<li>L => OR</li>
+<li>F => Gr</li>
+<li>R => Rd</li>
+<li>B => Bu</li>
+<li>D => Ye</li>
+</ul>
+</div>
+<div id="anchorsquares">
+<h1>Anchor Squares</h1>
+<div class='square' title='RGB (170, 199, 251)' style='background-color: #aac7fb;'><span>05/Wh</span></div>
+<div class='square' title='RGB (252, 121, 68)' style='background-color: #fc7944;'><span>14/OR</span></div>
+<div class='square' title='RGB (91, 208, 116)' style='background-color: #5bd074;'><span>23/Gr</span></div>
+<div class='square' title='RGB (238, 40, 92)' style='background-color: #ee285c;'><span>32/Rd</span></div>
+<div class='square' title='RGB (48, 174, 250)' style='background-color: #30aefa;'><span>41/Bu</span></div>
+<div class='square' title='RGB (210, 222, 74)' style='background-color: #d2de4a;'><span>50/Ye</span></div>
+</div>
+<h1>Final Cube</h1>
+<div class='side' id='upper'>
+    <div class='square col1' title='RGB (255, 204, 0), Lab (8011.5791, 412.5281, 6835.8843)' style='background-color: #ffcc00;'><span>01</span></div>
+    <div class='square col2' title='RGB (255, 102, 0), Lab (6192.4151, 4725.85, 5696.2569)' style='background-color: #ff6600;'><span>02</span></div>
+    <div class='square col3' title='RGB (255, 204, 0), Lab (8011.5791, 412.5281, 6835.8843)' style='background-color: #ffcc00;'><span>03</span></div>
+    <div class='square col1' title='RGB (255, 102, 0), Lab (6192.4151, 4725.85, 5696.2569)' style='background-color: #ff6600;'><span>04</span></div>
+    <div class='square col2' title='RGB (255, 255, 255), Lab (9341.5705, -0.0013, 0.0005)' style='background-color: #ffffff;'><span>05</span></div>
+    <div class='square col3' title='RGB (0, 0, 153), Lab (2573.3831, 4245.5386, -5782.7859)' style='background-color: #000099;'><span>06</span></div>
+    <div class='square col1' title='RGB (0, 102, 0), Lab (4005.5142, -3341.0705, 3224.637)' style='background-color: #006600;'><span>07</span></div>
+    <div class='square col2' title='RGB (0, 0, 153), Lab (2573.3831, 4245.5386, -5782.7859)' style='background-color: #000099;'><span>08</span></div>
+    <div class='square col3' title='RGB (204, 0, 0), Lab (4656.592, 5404.8974, 4535.0884)' style='background-color: #cc0000;'><span>09</span></div>
+</div>
+<div class='clear'></div>
+<div class='side' id='left'>
+    <div class='square col1' title='RGB (0, 0, 153), Lab (2573.3831, 4245.5386, -5782.7859)' style='background-color: #000099;'><span>10</span></div>
+    <div class='square col2' title='RGB (255, 204, 0), Lab (8011.5791, 412.5281, 6835.8843)' style='background-color: #ffcc00;'><span>11</span></div>
+    <div class='square col3' title='RGB (204, 0, 0), Lab (4656.592, 5404.8974, 4535.0884)' style='background-color: #cc0000;'><span>12</span></div>
+    <div class='square col1' title='RGB (255, 255, 255), Lab (9341.5705, -0.0013, 0.0005)' style='background-color: #ffffff;'><span>13</span></div>
+    <div class='square col2' title='RGB (255, 102, 0), Lab (6192.4151, 4725.85, 5696.2569)' style='background-color: #ff6600;'><span>14</span></div>
+    <div class='square col3' title='RGB (204, 0, 0), Lab (4656.592, 5404.8974, 4535.0884)' style='background-color: #cc0000;'><span>15</span></div>
+    <div class='square col1' title='RGB (255, 102, 0), Lab (6192.4151, 4725.85, 5696.2569)' style='background-color: #ff6600;'><span>16</span></div>
+    <div class='square col2' title='RGB (204, 0, 0), Lab (4656.592, 5404.8974, 4535.0884)' style='background-color: #cc0000;'><span>17</span></div>
+    <div class='square col3' title='RGB (0, 0, 153), Lab (2573.3831, 4245.5386, -5782.7859)' style='background-color: #000099;'><span>18</span></div>
+</div>
+<div class='side' id='front'>
+    <div class='square col1' title='RGB (255, 255, 255), Lab (9341.5705, -0.0013, 0.0005)' style='background-color: #ffffff;'><span>19</span></div>
+    <div class='square col2' title='RGB (204, 0, 0), Lab (4656.592, 5404.8974, 4535.0884)' style='background-color: #cc0000;'><span>20</span></div>
+    <div class='square col3' title='RGB (255, 204, 0), Lab (8011.5791, 412.5281, 6835.8843)' style='background-color: #ffcc00;'><span>21</span></div>
+    <div class='square col1' title='RGB (255, 255, 255), Lab (9341.5705, -0.0013, 0.0005)' style='background-color: #ffffff;'><span>22</span></div>
+    <div class='square col2' title='RGB (0, 102, 0), Lab (4005.5142, -3341.0705, 3224.637)' style='background-color: #006600;'><span>23</span></div>
+    <div class='square col3' title='RGB (255, 255, 255), Lab (9341.5705, -0.0013, 0.0005)' style='background-color: #ffffff;'><span>24</span></div>
+    <div class='square col1' title='RGB (204, 0, 0), Lab (4656.592, 5404.8974, 4535.0884)' style='background-color: #cc0000;'><span>25</span></div>
+    <div class='square col2' title='RGB (0, 102, 0), Lab (4005.5142, -3341.0705, 3224.637)' style='background-color: #006600;'><span>26</span></div>
+    <div class='square col3' title='RGB (255, 204, 0), Lab (8011.5791, 412.5281, 6835.8843)' style='background-color: #ffcc00;'><span>27</span></div>
+</div>
+<div class='side' id='right'>
+    <div class='square col1' title='RGB (0, 0, 153), Lab (2573.3831, 4245.5386, -5782.7859)' style='background-color: #000099;'><span>28</span></div>
+    <div class='square col2' title='RGB (255, 204, 0), Lab (8011.5791, 412.5281, 6835.8843)' style='background-color: #ffcc00;'><span>29</span></div>
+    <div class='square col3' title='RGB (0, 102, 0), Lab (4005.5142, -3341.0705, 3224.637)' style='background-color: #006600;'><span>30</span></div>
+    <div class='square col1' title='RGB (0, 102, 0), Lab (4005.5142, -3341.0705, 3224.637)' style='background-color: #006600;'><span>31</span></div>
+    <div class='square col2' title='RGB (204, 0, 0), Lab (4656.592, 5404.8974, 4535.0884)' style='background-color: #cc0000;'><span>32</span></div>
+    <div class='square col3' title='RGB (255, 204, 0), Lab (8011.5791, 412.5281, 6835.8843)' style='background-color: #ffcc00;'><span>33</span></div>
+    <div class='square col1' title='RGB (0, 102, 0), Lab (4005.5142, -3341.0705, 3224.637)' style='background-color: #006600;'><span>34</span></div>
+    <div class='square col2' title='RGB (255, 255, 255), Lab (9341.5705, -0.0013, 0.0005)' style='background-color: #ffffff;'><span>35</span></div>
+    <div class='square col3' title='RGB (0, 0, 153), Lab (2573.3831, 4245.5386, -5782.7859)' style='background-color: #000099;'><span>36</span></div>
+</div>
+<div class='side' id='back'>
+    <div class='square col1' title='RGB (255, 102, 0), Lab (6192.4151, 4725.85, 5696.2569)' style='background-color: #ff6600;'><span>37</span></div>
+    <div class='square col2' title='RGB (0, 0, 153), Lab (2573.3831, 4245.5386, -5782.7859)' style='background-color: #000099;'><span>38</span></div>
+    <div class='square col3' title='RGB (255, 102, 0), Lab (6192.4151, 4725.85, 5696.2569)' style='background-color: #ff6600;'><span>39</span></div>
+    <div class='square col1' title='RGB (204, 0, 0), Lab (4656.592, 5404.8974, 4535.0884)' style='background-color: #cc0000;'><span>40</span></div>
+    <div class='square col2' title='RGB (0, 0, 153), Lab (2573.3831, 4245.5386, -5782.7859)' style='background-color: #000099;'><span>41</span></div>
+    <div class='square col3' title='RGB (0, 0, 153), Lab (2573.3831, 4245.5386, -5782.7859)' style='background-color: #000099;'><span>42</span></div>
+    <div class='square col1' title='RGB (255, 255, 255), Lab (9341.5705, -0.0013, 0.0005)' style='background-color: #ffffff;'><span>43</span></div>
+    <div class='square col2' title='RGB (255, 204, 0), Lab (8011.5791, 412.5281, 6835.8843)' style='background-color: #ffcc00;'><span>44</span></div>
+    <div class='square col3' title='RGB (0, 102, 0), Lab (4005.5142, -3341.0705, 3224.637)' style='background-color: #006600;'><span>45</span></div>
+</div>
+<div class='clear'></div>
+<div class='side' id='down'>
+    <div class='square col1' title='RGB (255, 255, 255), Lab (9341.5705, -0.0013, 0.0005)' style='background-color: #ffffff;'><span>46</span></div>
+    <div class='square col2' title='RGB (255, 102, 0), Lab (6192.4151, 4725.85, 5696.2569)' style='background-color: #ff6600;'><span>47</span></div>
+    <div class='square col3' title='RGB (204, 0, 0), Lab (4656.592, 5404.8974, 4535.0884)' style='background-color: #cc0000;'><span>48</span></div>
+    <div class='square col1' title='RGB (0, 102, 0), Lab (4005.5142, -3341.0705, 3224.637)' style='background-color: #006600;'><span>49</span></div>
+    <div class='square col2' title='RGB (255, 204, 0), Lab (8011.5791, 412.5281, 6835.8843)' style='background-color: #ffcc00;'><span>50</span></div>
+    <div class='square col3' title='RGB (255, 102, 0), Lab (6192.4151, 4725.85, 5696.2569)' style='background-color: #ff6600;'><span>51</span></div>
+    <div class='square col1' title='RGB (255, 255, 255), Lab (9341.5705, -0.0013, 0.0005)' style='background-color: #ffffff;'><span>52</span></div>
+    <div class='square col2' title='RGB (0, 102, 0), Lab (4005.5142, -3341.0705, 3224.637)' style='background-color: #006600;'><span>53</span></div>
+    <div class='square col3' title='RGB (255, 102, 0), Lab (6192.4151, 4725.85, 5696.2569)' style='background-color: #ff6600;'><span>54</span></div>
+</div>
+<div class='clear'></div>
+
+</body>
+</html>

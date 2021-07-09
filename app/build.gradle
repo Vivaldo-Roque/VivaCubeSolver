@@ -1,0 +1,71 @@
+plugins {
+    id 'com.android.application'
+    id 'com.chaquo.python'
+}
+
+android {
+    compileSdkVersion 30
+
+    defaultConfig {
+        applicationId "ao.vivalabs.VivaCubeSolver"
+        minSdkVersion 17
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            //abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+            abiFilters "armeabi-v7a", "x86"
+        }
+
+        python {
+
+            buildPython "C:/Users/VivaldoRoque/AppData/Local/Programs/Python/Python38/python.exe"
+
+            pip {
+                install "numpy"
+                install "opencv-python"
+                install "imutils"
+                install "Pillow"
+                install "scipy"
+            }
+        }
+    }
+
+    buildTypes {
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets {
+        main {
+            python.srcDir "src\\main\\python"
+            jni {
+                srcDirs 'src\\main\\jni', 'src\\main\\jnilibs'
+            }
+        }
+    }
+
+    //externalNativeBuild {ndkBuild {path file('../../../Downloads/Compressed/opencv-4.2.0-android-sdk/OpenCV-android-sdk/sdk/native/jni/OpenCV.mk')}}
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation project(path: ':OpencvLib420')
+    implementation project(path: ':animcubeandroid')
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}
