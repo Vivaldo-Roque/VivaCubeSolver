@@ -3,6 +3,10 @@
 
 ## Application capable of solving the magic cube from images captured by the camera.
 
+project not yet complete.<br />
+
+But you can test the launch APK ==> https://github.com/Vivaldo-Roque/VivaCubeSolver_2/blob/master/app/release/app-release.apk <br />
+
 Rubik's Cube tracker by [@dwalton76](https://github.com/dwalton76/rubiks-cube-tracker).<br />
 
 Rubik's Cube color solver by [@dwalton76](https://github.com/dwalton76/rubiks-color-resolver).<br />
