@@ -1,7 +1,7 @@
 package com.catalinjurjiu.animcubeandroid;
 
 import android.graphics.Color;
-import android.support.annotation.ColorInt;
+import androidx.annotation.ColorInt;
 
 /**
  * Various utils used primarily when rendering the cube (with few exceptions).

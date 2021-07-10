@@ -1,7 +1,7 @@
 package com.catalinjurjiu.animcubeandroid;
 
-import android.support.annotation.IntDef;
-import android.support.annotation.StringDef;
+import androidx.annotation.IntDef;
+import androidx.annotation.StringDef;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -75,16 +75,16 @@ public class CubeConstants {
     }
 
     /**
-     * <p>Contains the animation modes available to the cube. To be used with {@link AnimCube#startAnimation(int)}</p>
+     * <p>Contains the animation modes available to the cube. To be used with {@link AnimCube #startAnimation(int)}</p>
      *
-     * @see AnimCube#startAnimation(int)
+     * @see AnimCube #startAnimation(int)
      */
     @IntDef
     @Retention(RetentionPolicy.SOURCE)
     @interface AnimationMode {
         /**
          * <p>
-         * The cube is not animating. It's only used internally by the cube and has no effect when passed to {@link AnimCube#startAnimation(int)}.
+         * The cube is not animating. It's only used internally by the cube and has no effect when passed to {@link AnimCube #startAnimation(int)}.
          * </p>
          */
         int STOPPED = -1,

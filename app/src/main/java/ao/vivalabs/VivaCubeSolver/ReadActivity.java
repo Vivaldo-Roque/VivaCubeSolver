@@ -44,7 +44,7 @@ public class ReadActivity extends AppCompatActivity {
     Mat edges = new Mat();
     boolean viewStatus = true;
     int counter = 10;
-    private MatOfPoint2f approxCurve = new MatOfPoint2f();
+    private final MatOfPoint2f approxCurve = new MatOfPoint2f();
 
 
 

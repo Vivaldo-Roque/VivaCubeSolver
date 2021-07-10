@@ -44,7 +44,7 @@ public class AnimatedCubeActivity extends AppCompatActivity implements AnimCube.
         }
 
 
-        animCube = (AnimCube) findViewById(R.id.animcube);
+        animCube = findViewById(R.id.animcube);
         animCube.setOnCubeModelUpdatedListener(this);
         animCube.setOnAnimationFinishedListener(this);
         animCube.setMoveSequence(solution);
@@ -69,7 +69,7 @@ public class AnimatedCubeActivity extends AppCompatActivity implements AnimCube.
             }
         });
 
-        forward_button = findViewById(R.id.play_forward);
+        forward_button = findViewById(R.id.forward_button);
         forward_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -95,12 +95,12 @@ public class AnimatedCubeActivity extends AppCompatActivity implements AnimCube.
 
     }
 
-    @Override
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.menu, menu);
         return true;
-    }
+    }*/
 
     /*@Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -163,7 +163,7 @@ public class AnimatedCubeActivity extends AppCompatActivity implements AnimCube.
 
     void printCubeModel(int[][] cube) {
         Log.d(TAG, "Cube model:");
-        StringBuilder stringBuilder = new StringBuilder("");
+        StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < cube.length; i++) {
             stringBuilder.append("\n");
             stringBuilder.append(i);

@@ -29,7 +29,7 @@ public class GalleryActivity extends AppCompatActivity {
     }
 
     private void createFileArray(File folder) {
-        File listFile [] = folder.listFiles();
+        File[] listFile = folder.listFiles();
 
         if(listFile!=null)
         {

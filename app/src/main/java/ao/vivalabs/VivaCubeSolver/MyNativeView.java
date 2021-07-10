@@ -4,12 +4,15 @@ import android.content.Context;
 import android.hardware.Camera;
 import android.util.AttributeSet;
 import org.opencv.android.JavaCameraView;
+import org.opencv.core.Size;
+
+import java.util.List;
 //import org.opencv.core.Size;
 
 
 public class MyNativeView extends JavaCameraView {
 
-    private Context myreference;
+    private final Context myreference;
 
     private static boolean isFlashLightON = false;
 
@@ -18,12 +21,21 @@ public class MyNativeView extends JavaCameraView {
         this.myreference = context;
     }
 
-    public void setResolution() {
-        disconnectCamera();
-        mMaxHeight = 480;
-        mMaxWidth = 640;
-        connectCamera(getWidth(), getHeight());
+    public List<Camera.Size> getResolutionList() {
+        return mCamera.getParameters().getSupportedPreviewSizes();
     }
+
+    public void setResolution(Camera.Size resolution) {
+        disconnectCamera();
+        connectCamera(resolution.width, resolution.height);
+    }
+
+    public Camera.Size getResolution() {
+        return mCamera.getParameters().getPreviewSize();
+    }
+
+
+
 
     // Setup the camera
     public void setupCameraFlashLight() {

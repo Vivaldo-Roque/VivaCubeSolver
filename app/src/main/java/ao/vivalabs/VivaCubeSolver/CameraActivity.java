@@ -9,18 +9,24 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.hardware.Camera;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import org.opencv.android.BaseLoaderCallback;
@@ -37,6 +43,7 @@ import org.opencv.imgproc.Imgproc;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.opencv.core.CvType.CV_8UC1;
@@ -45,7 +52,7 @@ import static org.opencv.imgproc.Imgproc.Canny;
 import static org.opencv.imgproc.Imgproc.dilate;
 
 
-public class CameraActivity extends Activity implements CameraBridgeViewBase.CvCameraViewListener2 {
+public class CameraActivity extends AppCompatActivity implements CameraBridgeViewBase.CvCameraViewListener2 {
 
     final private static String tag = "MainActivity";
 
@@ -62,7 +69,15 @@ public class CameraActivity extends Activity implements CameraBridgeViewBase.CvC
     private int take_image = 0;
     private boolean flashIconMode = false;
     private int mCameraId = 0;
-    private  int count = 0;
+    private int count = 0;
+
+    private List<Camera.Size> mResolutionList;
+    private Menu mMenu;
+    private MenuItem[] mResolutionMenuItems;
+    private SubMenu mResolutionMenu;
+    private boolean mCameraStarted = false;
+    private boolean mMenuItemsCreated = false;
+
 
     List<String> filesName = Arrays.asList("rubiks-side-F", "rubiks-side-R", "rubiks-side-B", "rubiks-side-L", "rubiks-side-U", "rubiks-side-D");
 
@@ -98,8 +113,7 @@ public class CameraActivity extends Activity implements CameraBridgeViewBase.CvC
                 1);
 
         mOpenCvCameraView = findViewById(R.id.frame_surface);
-        mOpenCvCameraView.setResolution();
-        mOpenCvCameraView.setMaxFrameSize(720, 720);
+        //mOpenCvCameraView.setMaxFrameSize(720, 720);
         mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
         mOpenCvCameraView.setCvCameraViewListener(this);
 
@@ -172,25 +186,22 @@ public class CameraActivity extends Activity implements CameraBridgeViewBase.CvC
         mOpenCvCameraView.enableView();
     }
 
-    public void deleteImages(){
-        try{
-            File dir = new File(Environment.getExternalStorageDirectory()+"/CV");
-            if (dir.isDirectory())
-            {
+    public void deleteImages() {
+        try {
+            File dir = new File(Environment.getExternalStorageDirectory() + "/CV");
+            if (dir.isDirectory()) {
                 String[] children = dir.list();
-                for (int i = 0; i < children.length; i++)
-                {
+                for (int i = 0; i < children.length; i++) {
                     new File(dir, children[i]).delete();
                 }
             }
-        }catch (Exception e)
-        {
+        } catch (Exception e) {
             Log.d(tag, "deleteImages: Empty");
         }
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[],
+    public void onRequestPermissionsResult(int requestCode, String[] permissions,
                                            int[] grantResults) {
         switch (requestCode) {
             case 1: {
@@ -228,6 +239,7 @@ public class CameraActivity extends Activity implements CameraBridgeViewBase.CvC
         }
     }
 
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -239,11 +251,20 @@ public class CameraActivity extends Activity implements CameraBridgeViewBase.CvC
     public void onCameraViewStarted(int width, int height) {
         mRgba = new Mat(height, width, CV_8UC4);
         mGray = new Mat(height, width, CV_8UC1);
+        mCameraStarted = true;
+        setupMenuItems();
     }
 
     public void onCameraViewStopped() {
         mRgba.release();
         mGray.release();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        mMenu = menu;
+        setupMenuItems();
+        return true;
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -256,26 +277,26 @@ public class CameraActivity extends Activity implements CameraBridgeViewBase.CvC
             Core.flip(mGray, mGray, 1);
         }
 
-        Scalar color = new Scalar (0,0,0);
+        Scalar color = new Scalar(0, 0, 0);
 
         System.out.println(String.format("Mat size h: %s, w: %s", (int) mRgba.size().height, (int) mRgba.size().width));
         int w = mRgba.width();
         int h = mRgba.height();
-        int w_rect = w*3/4;
-        int h_rect = h*3/4;
-        Point rect_point1 = new Point((w-h_rect)/2, (h-h_rect)/2);
-        Point rect_point2 = new Point((w+h_rect)/2, (h+h_rect)/2);
+        int w_rect = w * 3 / 4;
+        int h_rect = h * 3 / 4;
+        Point rect_point1 = new Point((w - h_rect) / 2, (h - h_rect) / 2);
+        Point rect_point2 = new Point((w + h_rect) / 2, (h + h_rect) / 2);
         Rect rect1 = new Rect(rect_point1, rect_point2);
-        double factor = ((h+h_rect)/2)/4;
+        double factor = ((h + h_rect) / 2) / 4;
 
         //Imgproc.rectangle (mRgba, new Point(factor,factor), new Point(factor*4,factor*4), color, 25);
-        Imgproc.rectangle (mRgba, rect1, color, 25);
+        Imgproc.rectangle(mRgba, rect1, color, 25);
 
-        Imgproc.line(mRgba, new Point(((w-h_rect)/2) * 3, (h-h_rect)/2), new Point(((w-h_rect)/2) * 3,(h+h_rect)/2), color, 25,8);
-        Imgproc.line(mRgba, new Point(((w-h_rect)/2) * 5, (h-h_rect)/2), new Point(((w-h_rect)/2) * 5,(h+h_rect)/2), color, 25,8);
+        Imgproc.line(mRgba, new Point(((w - h_rect) / 2) * 3, (h - h_rect) / 2), new Point(((w - h_rect) / 2) * 3, (h + h_rect) / 2), color, 25, 8);
+        Imgproc.line(mRgba, new Point(((w - h_rect) / 2) * 5, (h - h_rect) / 2), new Point(((w - h_rect) / 2) * 5, (h + h_rect) / 2), color, 25, 8);
 
-        Imgproc.line(mRgba, new Point(((w-h_rect)/2), ((h-h_rect)/2) * 3), new Point((w+h_rect)/2,((h-h_rect)/2) * 3), color, 25,8);
-        Imgproc.line(mRgba, new Point(((w-h_rect)/2), ((h-h_rect)/2) * 5), new Point((w+h_rect)/2,((h-h_rect)/2) * 5), color, 25,8);
+        Imgproc.line(mRgba, new Point(((w - h_rect) / 2), ((h - h_rect) / 2) * 3), new Point((w + h_rect) / 2, ((h - h_rect) / 2) * 3), color, 25, 8);
+        Imgproc.line(mRgba, new Point(((w - h_rect) / 2), ((h - h_rect) / 2) * 5), new Point((w + h_rect) / 2, ((h - h_rect) / 2) * 5), color, 25, 8);
 
         //Point end
         //Imgproc.line(mRgba, new Point(factor*2, factor), new Point(factor*2, factor*4), color, 25,8);
@@ -291,7 +312,7 @@ public class CameraActivity extends Activity implements CameraBridgeViewBase.CvC
         //p1 = new Point(factor, factor);
         //p4 = new Point(factor*4, factor*4);
 
-        Rect rectCrop = new Rect((int)rect_point1.x, (int)rect_point1.y , (int) (rect_point2.x-rect_point1.x+1), (int)(rect_point2.y-rect_point1.y+1));
+        Rect rectCrop = new Rect((int) rect_point1.x, (int) rect_point1.y, (int) (rect_point2.x - rect_point1.x + 1), (int) (rect_point2.y - rect_point1.y + 1));
         Mat mCrop = mRgba.submat(rectCrop);
 
         take_image = take_picture_function_rgb(take_image, mCrop);
@@ -320,19 +341,20 @@ public class CameraActivity extends Activity implements CameraBridgeViewBase.CvC
                 success = folder.mkdirs();
             }
 
-            if (count >= 5) {
-                counter_text.setText(String.format("N: %d", count+1));
-                show_Notification();
-                take_picture_button.setImageResource(R.drawable.ic_baseline_done_24);
-            }
-            else{
+            if (count >= 0 && count <= 5) {
                 String fileName = getFilesDir().getPath() + "/CV/" + filesName.get(count) + ".png";
                 //System.out.println("=======>" + fileName);
 
                 Imgcodecs.imwrite(fileName, save_mat);
 
                 //System.out.println(filesName.get(count) + ".png was scanned");
-                counter_text.setText(String.format("N: %d", count+1));
+                counter_text.setText(String.format("N: %d", count + 1));
+
+                if (count == 5) {
+                    take_picture_button.setImageResource(R.drawable.ic_baseline_done_24);
+                    show_Notification();
+                }
+
                 count++;
             }
             take_image = 0;
@@ -343,26 +365,57 @@ public class CameraActivity extends Activity implements CameraBridgeViewBase.CvC
 
     @RequiresApi(api = Build.VERSION_CODES.O)
 
-    public void show_Notification(){
+    public void show_Notification() {
 
-        Intent intent=new Intent(getApplicationContext(),MainActivity.class);
-        String CHANNEL_ID="MYCHANNEL";
-        NotificationChannel notificationChannel=new NotificationChannel(CHANNEL_ID,"CV",NotificationManager.IMPORTANCE_LOW);
-        PendingIntent pendingIntent= PendingIntent.getActivity(getApplicationContext(),1,intent,0);
-        Notification notification=new Notification.Builder(getApplicationContext(),CHANNEL_ID)
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        String CHANNEL_ID = "MYCHANNEL";
+        NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID, "CV", NotificationManager.IMPORTANCE_LOW);
+        PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 1, intent, 0);
+        Notification notification = new Notification.Builder(getApplicationContext(), CHANNEL_ID)
                 .setContentText("Estado")
                 .setContentTitle("Scan completo!")
                 .setContentIntent(pendingIntent)
-                .addAction(android.R.drawable.stat_sys_warning,"Alerta!",pendingIntent)
+                .addAction(android.R.drawable.stat_sys_warning, "Alerta!", pendingIntent)
                 .setChannelId(CHANNEL_ID)
-                .setDefaults(Notification.DEFAULT_LIGHTS| Notification.DEFAULT_SOUND)
+                .setDefaults(Notification.DEFAULT_LIGHTS | Notification.DEFAULT_SOUND)
                 .setSmallIcon(android.R.drawable.stat_sys_warning)
                 .build();
 
-        NotificationManager notificationManager=(NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.createNotificationChannel(notificationChannel);
-        notificationManager.notify(1,notification);
+        notificationManager.notify(1, notification);
+    }
 
+    private void setupMenuItems() {
+        if (mMenu == null || !mCameraStarted || mMenuItemsCreated) {
+            return;
+        }
 
+        mResolutionMenu = mMenu.addSubMenu("Resolution");
+        mResolutionList = mOpenCvCameraView.getResolutionList();
+        mResolutionMenuItems = new MenuItem[mResolutionList.size()];
+
+        int idx = 0;
+        for (Camera.Size resolution : mResolutionList) {
+            mResolutionMenuItems[idx] = mResolutionMenu.add(2, idx, Menu.NONE,
+                    Integer.valueOf(resolution.width).toString() + "x" + Integer.valueOf(resolution.height).toString());
+            idx++;
+        }
+        mMenuItemsCreated = true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Log.i(tag, "called onOptionsItemSelected; selected item: " + item);
+        if (item.getGroupId() == 1) {
+            int id = item.getItemId();
+            Camera.Size resolution = mResolutionList.get(id);
+            mOpenCvCameraView.setResolution(resolution);
+            resolution = mOpenCvCameraView.getResolution();
+            String caption = Integer.valueOf(resolution.width).toString() + "x" + Integer.valueOf(resolution.height).toString();
+            Toast.makeText(this, caption, Toast.LENGTH_SHORT).show();
+        }
+
+        return true;
     }
 }

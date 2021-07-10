@@ -26,7 +26,7 @@ public class ViewPageAdapter extends PagerAdapter {
         this.context = context;
         this.images = images;
 
-        mLayoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+        mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
 
     }
@@ -39,7 +39,7 @@ public class ViewPageAdapter extends PagerAdapter {
 
     @Override
     public boolean isViewFromObject(@NonNull View view, @NonNull Object object) {
-        return view == (LinearLayout) object;
+        return view == object;
     }
 
     @Override

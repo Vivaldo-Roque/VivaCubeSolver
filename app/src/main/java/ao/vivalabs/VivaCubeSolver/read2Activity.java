@@ -58,7 +58,7 @@ public class read2Activity extends AppCompatActivity {
         PyObject pyo = py.getModule("myscript");
         PyObject obj = pyo.callAttr("main", imgString);
         String str = obj.toString();
-        byte data[] = android.util.Base64.decode(str, Base64.DEFAULT);
+        byte[] data = android.util.Base64.decode(str, Base64.DEFAULT);
         Bitmap bmp = BitmapFactory.decodeByteArray(data, 0, data.length);
         imageView.setImageBitmap(bmp);
     }
