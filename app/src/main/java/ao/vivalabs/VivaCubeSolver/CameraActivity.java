@@ -1,7 +1,6 @@
 package ao.vivalabs.VivaCubeSolver;
 
 import android.Manifest;
-import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -23,7 +22,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,13 +41,10 @@ import org.opencv.imgproc.Imgproc;
 
 import java.io.File;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import static org.opencv.core.CvType.CV_8UC1;
 import static org.opencv.core.CvType.CV_8UC4;
-import static org.opencv.imgproc.Imgproc.Canny;
-import static org.opencv.imgproc.Imgproc.dilate;
 
 
 public class CameraActivity extends AppCompatActivity implements CameraBridgeViewBase.CvCameraViewListener2 {
@@ -113,7 +108,9 @@ public class CameraActivity extends AppCompatActivity implements CameraBridgeVie
                 1);
 
         mOpenCvCameraView = findViewById(R.id.frame_surface);
-        //mOpenCvCameraView.setMaxFrameSize(720, 720);
+        mOpenCvCameraView.setMinimumHeight(720);
+        mOpenCvCameraView.setMinimumWidth(720);
+        mOpenCvCameraView.setMaxFrameSize(721, 721);
         mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
         mOpenCvCameraView.setCvCameraViewListener(this);
 
@@ -251,7 +248,7 @@ public class CameraActivity extends AppCompatActivity implements CameraBridgeVie
     public void onCameraViewStarted(int width, int height) {
         mRgba = new Mat(height, width, CV_8UC4);
         mGray = new Mat(height, width, CV_8UC1);
-        mCameraStarted = true;
+        //mCameraStarted = true;
         setupMenuItems();
     }
 
@@ -277,26 +274,27 @@ public class CameraActivity extends AppCompatActivity implements CameraBridgeVie
             Core.flip(mGray, mGray, 1);
         }
 
-        Scalar color = new Scalar(0, 0, 0);
+        Scalar black = new Scalar(0, 0, 0);
+        Scalar green = new Scalar(0,255,0);
+        Scalar red = new Scalar(255,0,0);
 
-        System.out.println(String.format("Mat size h: %s, w: %s", (int) mRgba.size().height, (int) mRgba.size().width));
+        System.out.println(String.format("Mat size w: %s, h: %s", (int) mRgba.size().width, (int) mRgba.size().height));
         int w = mRgba.width();
         int h = mRgba.height();
         int w_rect = w * 3 / 4;
         int h_rect = h * 3 / 4;
-        Point rect_point1 = new Point((w - h_rect) / 2, (h - h_rect) / 2);
-        Point rect_point2 = new Point((w + h_rect) / 2, (h + h_rect) / 2);
+        Point rect_point1 = new Point((h - h_rect) / 2, (h - h_rect) / 2);
+        Point rect_point2 = new Point((h + h_rect) / 2, (h + h_rect) / 2);
         Rect rect1 = new Rect(rect_point1, rect_point2);
-        double factor = ((h + h_rect) / 2) / 4;
 
         //Imgproc.rectangle (mRgba, new Point(factor,factor), new Point(factor*4,factor*4), color, 25);
-        Imgproc.rectangle(mRgba, rect1, color, 25);
+        Imgproc.rectangle(mRgba, rect1, black, 25);
 
-        Imgproc.line(mRgba, new Point(((w - h_rect) / 2) * 3, (h - h_rect) / 2), new Point(((w - h_rect) / 2) * 3, (h + h_rect) / 2), color, 25, 8);
-        Imgproc.line(mRgba, new Point(((w - h_rect) / 2) * 5, (h - h_rect) / 2), new Point(((w - h_rect) / 2) * 5, (h + h_rect) / 2), color, 25, 8);
+            Imgproc.line(mRgba, new Point(((h - h_rect) / 2) * 3, (h - h_rect) / 2), new Point(((h - h_rect) / 2) * 3, (h + h_rect) / 2), black, 25, 8);
+            Imgproc.line(mRgba, new Point(((h - h_rect) / 2) * 5, (h - h_rect) / 2), new Point(((h - h_rect) / 2) * 5, (h + h_rect) / 2), black, 25, 8);
 
-        Imgproc.line(mRgba, new Point(((w - h_rect) / 2), ((h - h_rect) / 2) * 3), new Point((w + h_rect) / 2, ((h - h_rect) / 2) * 3), color, 25, 8);
-        Imgproc.line(mRgba, new Point(((w - h_rect) / 2), ((h - h_rect) / 2) * 5), new Point((w + h_rect) / 2, ((h - h_rect) / 2) * 5), color, 25, 8);
+            Imgproc.line(mRgba, new Point(((h - h_rect) / 2), ((h - h_rect) / 2) * 3), new Point((h + h_rect) / 2, ((h - h_rect) / 2) * 3), black, 25, 8);
+            Imgproc.line(mRgba, new Point(((h - h_rect) / 2), ((h - h_rect) / 2) * 5), new Point((h + h_rect) / 2, ((h - h_rect) / 2) * 5), black, 25, 8);
 
         //Point end
         //Imgproc.line(mRgba, new Point(factor*2, factor), new Point(factor*2, factor*4), color, 25,8);
@@ -410,12 +408,29 @@ public class CameraActivity extends AppCompatActivity implements CameraBridgeVie
         if (item.getGroupId() == 1) {
             int id = item.getItemId();
             Camera.Size resolution = mResolutionList.get(id);
-            mOpenCvCameraView.setResolution(resolution);
-            resolution = mOpenCvCameraView.getResolution();
-            String caption = Integer.valueOf(resolution.width).toString() + "x" + Integer.valueOf(resolution.height).toString();
-            Toast.makeText(this, caption, Toast.LENGTH_SHORT).show();
+            //mOpenCvCameraView.setResolution(resolution);
+            mOpenCvCameraView.disableView();
+            mOpenCvCameraView.setMaxFrameSize(resolution.width, resolution.height);
+            mOpenCvCameraView.enableView();
+            //resolution = mOpenCvCameraView.getResolution();
+            //String caption = Integer.valueOf(resolution.width).toString() + "x" + Integer.valueOf(resolution.height).toString();
+            //Toast.makeText(this, caption, Toast.LENGTH_SHORT).show();
         }
 
         return true;
+    }
+
+    public double euclideanDistance(Point a, Point b){
+        double distance = 0.0;
+        try{
+            if(a != null && b != null){
+                double xDiff = a.x - b.x;
+                double yDiff = a.y - b.y;
+                distance = Math.sqrt(Math.pow(xDiff,2) + Math.pow(yDiff, 2));
+            }
+        }catch(Exception e){
+            System.err.println("Something went wrong in euclideanDistance function in "+CameraActivity.class+" "+e.getMessage());
+        }
+        return distance;
     }
 }

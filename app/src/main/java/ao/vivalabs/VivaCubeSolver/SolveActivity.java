@@ -1,16 +1,18 @@
 package ao.vivalabs.VivaCubeSolver;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import cs.min2phase.Search;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.chaquo.python.PyObject;
 import com.chaquo.python.Python;
 import com.chaquo.python.android.AndroidPlatform;
+
+import cs.min2phase.Search;
 
 public class SolveActivity extends AppCompatActivity {
 

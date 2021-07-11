@@ -37,12 +37,6 @@
             android:name=".SolveActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".read2Activity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ReadActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".GalleryActivity"
             android:screenOrientation="portrait" />
         <activity

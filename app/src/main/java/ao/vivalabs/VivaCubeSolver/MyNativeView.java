@@ -3,8 +3,8 @@ package ao.vivalabs.VivaCubeSolver;
 import android.content.Context;
 import android.hardware.Camera;
 import android.util.AttributeSet;
+
 import org.opencv.android.JavaCameraView;
-import org.opencv.core.Size;
 
 import java.util.List;
 //import org.opencv.core.Size;
@@ -28,6 +28,11 @@ public class MyNativeView extends JavaCameraView {
     public void setResolution(Camera.Size resolution) {
         disconnectCamera();
         connectCamera(resolution.width, resolution.height);
+    }
+
+    public void setPreview(int width, int height) {
+        Camera.Parameters parameters = mCamera.getParameters();
+        parameters.setPreviewSize(width, height);
     }
 
     public Camera.Size getResolution() {

@@ -27,9 +27,6 @@ android {
             pip {
                 install "numpy"
                 install "opencv-python"
-                install "imutils"
-                install "Pillow"
-                install "scipy"
             }
         }
     }
@@ -37,7 +34,8 @@ android {
     buildTypes {
 
         release {
-            minifyEnabled false
+            shrinkResources true
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

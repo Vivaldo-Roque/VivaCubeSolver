@@ -19,18 +19,6 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:id="@+id/camera_button2"
-        android:text="Read Image 1" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:id="@+id/camera_button4"
-        android:text="Read image 2" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
         android:id="@+id/camera_button3"
         android:text="Solve images" />
 
