@@ -1,11 +1,6 @@
-from argparse import ArgumentParser
-from json import dumps as json_dumps
 from json import loads as json_loads
 from math import sqrt
 from rubikscolorresolver import RubiksColorSolverGeneric
-import logging
-import os
-
 
 '''
 if os.path.exists("scramble.txt"):

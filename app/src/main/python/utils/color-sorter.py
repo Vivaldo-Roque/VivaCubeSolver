@@ -6,17 +6,16 @@ Against Rubiks cube RGB values
 I skipped hilbert, that one was more trouble than it was worth
 """
 
-from rubikscolorresolver import k_means_colors_dictionary
-from sklearn.cluster import KMeans
-from copy import deepcopy
-from pprint import pprint, pformat
-from scipy.spatial import distance
-import numpy as np
 import colorsys
 import json
 import logging
 import math
+import numpy as np
 import sys
+from copy import deepcopy
+from rubikscolorresolver import k_means_colors_dictionary
+from scipy.spatial import distance
+from sklearn.cluster import KMeans
 
 
 def convert_key_strings_to_int(data):

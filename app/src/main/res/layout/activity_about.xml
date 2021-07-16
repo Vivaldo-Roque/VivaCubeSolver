@@ -5,15 +5,119 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray"
+    android:orientation="vertical"
+    android:gravity="center"
     tools:context=".AboutActivity">
 
-    <TextView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
         android:layout_centerInParent="true"
-        android:textSize="30sp"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:text="Hello I'm Vivaldo Roque and it's Viva Cube Solver, enjoy."/>
+        android:layout_marginTop="5dp"
+        android:layout_above="@+id/appInfo">
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/logo"
+            app:civ_border_width="5dp"
+            app:civ_border_color="#FF000000"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VivaCubeSolver"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_marginBottom="20dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:text="Application capable of solving the magic cube from images captured by the camera."/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/appInfo"
+        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="330dp"
+            android:layout_centerVertical="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:src="@drawable/western_colors" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:justificationMode="inter_word"
+                    android:text="Choose a color scheme for the cube in the settings.\n\n1 - First click on the open camera button. Place each face of the cube on the grid that appears on the screen and take a picture.\n\nNote: You MUST scan the sides in F R B L U D order. Once you've scanned L you want to put F back in front and then flip forward one time to scan U, this way U is oriented correctly. To go from U to D just flip forward two times. Once you've scanned D, D will be facing the camera, U will be facing you and F will be on top.\n\n2 - When you have all 6 cube images. Go back to the main menu and choose solve images. A text with the message &quot;Tap me!&quot; will appear, click on it and wait for the next information.\n\n3 - If all goes well you will see the solution on the screen. If you click on the solution it will take you to the animation screen, flip the cube so that U is on top and F is facing you, just follow the instructions until you complete the magic cube."
+                    android:textColor="@color/white"
+                    android:textSize="18dp" />
+
+                <LinearLayout
+                    android:layout_marginTop="80dp"
+                    android:layout_marginBottom="50dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_centerInParent="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_marginBottom="35dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/github"
+                        android:textColor="@color/teal_200"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:id="@+id/github"/>
+                    <TextView
+                        android:layout_marginBottom="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/licence"
+                        android:textColor="@color/teal_200"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:id="@+id/licences"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
 
 </RelativeLayout>

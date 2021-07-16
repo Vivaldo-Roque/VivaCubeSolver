@@ -1,6 +1,7 @@
 package ao.vivalabs.VivaCubeSolver;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.opencv.android.OpenCVLoader;
 
 public class MainActivity extends AppCompatActivity {
+
+    SharedPreferences prefs = null;
 
     static {
         if(OpenCVLoader.initDebug()){
@@ -24,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button camera_button;
     private Button about_button;
-    //private  Button animatedCube_button;
+    private  Button setting_button;
     private  Button solve_images;
 
 
@@ -32,9 +35,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("Menu");
         setContentView(R.layout.activity_main);
 
-        camera_button = findViewById(R.id.camera_button1);
+        // Perhaps set content view here
+
+        prefs = getSharedPreferences("ao.vivalabs.VivaCubeSolver", MODE_PRIVATE);
+
+        camera_button = findViewById(R.id.main_open_camera);
         camera_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        solve_images = findViewById(R.id.camera_button3);
+        solve_images = findViewById(R.id.main_solve_images);
         solve_images.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        about_button = findViewById(R.id.camera_button6);
+        about_button = findViewById(R.id.main_about);
         about_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -59,15 +67,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        /*animatedCube_button = findViewById(R.id.camera_button5);
-        animatedCube_button.setOnClickListener(new View.OnClickListener() {
+        setting_button = findViewById(R.id.main_settings);
+        setting_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, AnimatedCubeActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                startActivity(new Intent(MainActivity.this, SettingActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP));
             }
-        });*/
+        });
 
         //startActivity(new Intent(MainActivity.this, CameraActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP));
-        //startActivity(new Intent(MainActivity.this, read2Activity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP));
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (prefs.getBoolean("firstrun", true)) {
+            startActivity(new Intent(MainActivity.this, SettingActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP));
+            prefs.edit().putBoolean("firstrun", false).commit();
+        }
     }
 }

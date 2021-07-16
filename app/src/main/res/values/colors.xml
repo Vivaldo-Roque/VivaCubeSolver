@@ -9,4 +9,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="light_gray">#474C4F</color>
+
+    <color name="whiteSticker">#FFFFFF</color>
+    <color name="yellowSticker">#FFFF00</color>
+    <color name="orangeSticker">#FF8800</color>
+    <color name="redSticker">#FF0000</color>
+    <color name="blueSticker">#0000FF</color>
+    <color name="greenSticker">#00FF00</color>
 </resources>

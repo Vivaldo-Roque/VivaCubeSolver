@@ -272,6 +272,16 @@ public class AnimCube extends SurfaceView implements View.OnTouchListener {
         init(context, attrs);
     }
 
+    public void setCubeColors(int[] colors)
+    {
+        for (int x = 0; x < 6; x++)
+        {
+            cubeColors[x] = colors[x];
+            resetCubeColors();
+            repaint();
+        }
+    }
+
     /**
      * <p>
      * Returns an {@code int[6][9]} representing the current cube model. Each integer in the array is a {@link CubeColors} and represents the color for a particular
@@ -540,6 +550,7 @@ public class AnimCube extends SurfaceView implements View.OnTouchListener {
      * @see #setMoveSequence(String)
      * @see #setCubeModel(String)
      */
+
     public void resetToInitialState() {
         synchronized (animThreadLock) {
             boolean wasAnimating = animating;

@@ -1,11 +1,8 @@
-from rubikscubetracker import RubiksImage, merge_two_dicts
-from math import sqrt
-import argparse
 import json
-import logging
 import os
 import sys
-import subprocess
+from math import sqrt
+from rubikscubetracker import RubiksImage, merge_two_dicts
 
 '''
 if os.path.exists("out.txt"):

@@ -1,5 +1,6 @@
 package ao.vivalabs.VivaCubeSolver;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,8 +15,9 @@ public class AnimatedCubeActivity extends AppCompatActivity implements AnimCube.
     public static final String ANIM_CUBE_SAVE_STATE_BUNDLE_ID = "animCube";
     private static final String TAG = "AnimatedCubeActivity";
     private AnimCube animCube;
-    private Bundle state;
-    private String solution;
+    private Bundle state = new Bundle();
+    private String solution = new String();
+    private Context context = AnimatedCubeActivity.this;
 
     private ImageButton play_button;
     private  ImageButton stop_button;
@@ -29,6 +31,7 @@ public class AnimatedCubeActivity extends AppCompatActivity implements AnimCube.
         Log.d(TAG, "onCreate");
         setContentView(R.layout.activity_animated_cube);
 
+        int[] scheme = SettingActivity.getFromPrefs(context, "SchemeArray");
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -36,18 +39,18 @@ public class AnimatedCubeActivity extends AppCompatActivity implements AnimCube.
             //The key argument here must match that used in the other activity
         }
         else {
-            solution = "RUR'";
+            solution = "RUR'URU2R'";
         }
 
 
         animCube = findViewById(R.id.animcube);
         animCube.setOnCubeModelUpdatedListener(this);
         animCube.setOnAnimationFinishedListener(this);
+        animCube.setSingleRotationSpeed(20);
+        animCube.setDoubleRotationSpeed(25);
+        animCube.setCubeColors(scheme);
         animCube.setMoveSequence(solution);
         animCube.applyMoveSequenceReversed();
-        state = animCube.saveState();
-        animCube.setSingleRotationSpeed(20);
-        animCube.setDoubleRotationSpeed(15);
 
         play_button = findViewById(R.id.play_button);
         play_button.setOnClickListener(new View.OnClickListener() {
@@ -86,9 +89,11 @@ public class AnimatedCubeActivity extends AppCompatActivity implements AnimCube.
             @Override
             public void onClick(View view) {
                 animCube.restoreState(state);
+                state = animCube.saveState();
             }
         });
 
+        state = animCube.saveState();
     }
 
     /*@Override
@@ -181,4 +186,6 @@ public class AnimatedCubeActivity extends AppCompatActivity implements AnimCube.
     public void onAnimationFinished() {
         Log.d(TAG, "Cube AnimationFinished!");
     }
+
+    //Color.parseColor("#"+Integer.toHexString(getResources().getColor(R.color.yellowSticker));
 }

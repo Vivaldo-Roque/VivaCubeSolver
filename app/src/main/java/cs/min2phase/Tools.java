@@ -1,9 +1,9 @@
 package cs.min2phase;
 
-import java.util.Random;
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
+import java.util.Random;
 
 /**
  * Some useful functions.

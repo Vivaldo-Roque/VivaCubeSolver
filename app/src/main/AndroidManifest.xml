@@ -29,18 +29,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CV">
-        <activity android:name=".AboutActivity"></activity>
+        <activity
+            android:name=".SettingActivity"
+            android:label="Settings"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AboutActivity"
+            android:label="About"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".AnimatedCubeActivity"
+            android:label="Animation"
             android:screenOrientation="portrait" />
         <activity
             android:name=".SolveActivity"
+            android:label="Solution"
             android:screenOrientation="portrait" />
         <activity
             android:name=".GalleryActivity"
+            android:label="Gallery"
             android:screenOrientation="portrait" />
         <activity
             android:name=".CameraActivity"
+            android:label="Camera scan"
             android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Viva Cube Solver</string>
+    <string name="licence"><u>OPEN SOURCE LICENCES</u></string>
+    <string name="github"><u>GITHUB PROJECT</u></string>
 </resources>

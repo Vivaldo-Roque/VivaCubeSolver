@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".CameraActivity">
 
     <!--<org.opencv.android.JavaCameraView
         android:layout_width="match_parent"
@@ -59,9 +61,9 @@
             android:layout_height="match_parent">
             <ImageView
                 android:id="@+id/gallery"
-                android:layout_width="30dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"
                 android:src="@drawable/gallery" />
         </LinearLayout>
 
@@ -71,9 +73,8 @@
             android:layout_height="match_parent">
             <ImageView
                 android:id="@+id/take_picture"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:src="@drawable/take_picture" />
         </LinearLayout>
 
@@ -82,11 +83,11 @@
             android:gravity="center_horizontal"
             android:layout_height="match_parent">
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="40dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"
                 android:id="@+id/flip_camera"
-                android:src="@drawable/flip_camera"
-                android:layout_marginTop="30dp"/>
+                android:src="@drawable/flip_camera" />
         </LinearLayout>
 
     </LinearLayout>

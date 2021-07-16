@@ -16,13 +16,7 @@ For each png
 
 """
 
-from copy import deepcopy
-from itertools import combinations
-from pprint import pformat
-from subprocess import check_output
-import argparse
 import cv2
-import logging
 import json
 import logging
 import math
@@ -30,6 +24,9 @@ import numpy as np
 import os
 import sys
 import time
+from copy import deepcopy
+from pprint import pformat
+from subprocess import check_output
 
 log = logging.getLogger(__name__)
 
