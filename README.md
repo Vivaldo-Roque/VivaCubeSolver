@@ -5,7 +5,15 @@
 
 project not yet complete.<br />
 
+## How to use.
+
+Working on it!<br />
+
+## Release APK.
+
 But you can test the launch APK ==> https://github.com/Vivaldo-Roque/VivaCubeSolver_2/blob/master/app/release/app-release.apk <br />
+
+## Used libraries
 
 Rubik's Cube tracker by [@dwalton76](https://github.com/dwalton76/rubiks-cube-tracker).<br />
 
