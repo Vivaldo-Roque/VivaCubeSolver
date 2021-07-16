@@ -7,13 +7,7 @@ project not yet complete.<br />
 
 ## How to use.
 
-Although I have put the option to turn on the flashlight, this glare caused by it can compromise reading. I recommend using it where there is good lighting.<br />
-
-First click on the open camera button. Place each face of the cube on the grid that appears on the screen and take a picture.<br />
-
-When you have all 6 cube images. Go back to the main menu and choose solve images. A text with the message "Loading..." will appear, click on it and wait for the next information.<br />
-
-If all goes well you will see the scramble on the screen. If you click on the scamble it will take you to the animation screen, flip the cube so that U is on top and F is facing you, just follow the instructions until you complete the magic cube.<br />
+Working on it!<br />
 
 ## Release APK.
 
