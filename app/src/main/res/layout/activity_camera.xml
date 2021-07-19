@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".CameraActivity">
 
     <!--<org.opencv.android.JavaCameraView
@@ -27,8 +28,8 @@
             android:id="@+id/turn_flash"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
             android:layout_alignParentLeft="true"
             android:src="@drawable/flash_off" />
 
@@ -37,12 +38,40 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="5dp"
-            android:text=""
             android:textColor="@android:color/white"
             android:textAlignment="center"
+            android:gravity="center"
             android:textSize="17sp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="5dp"/>
+
+        <TextView
+            android:id="@+id/Upper"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="90dp"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textSize="25dp"
+            android:text="U"
+            android:background="@color/yellowSticker"
+            android:src="@drawable/western_colors"/>
+
+        <TextView
+            android:id="@+id/Down"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/black"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textSize="25dp"
+            android:text="D"
+            android:background="@color/white"
+            android:src="@drawable/western_colors"/>
 
     </RelativeLayout>
 

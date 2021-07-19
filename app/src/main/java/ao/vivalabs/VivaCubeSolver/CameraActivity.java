@@ -74,6 +74,8 @@ public class CameraActivity extends AppCompatActivity implements CameraBridgeVie
     private ImageView take_picture_button;
     private ImageView gallery_button;
     private TextView counter_text;
+    private TextView Upper;
+    private TextView Down;
     private int take_image = 0;
     private boolean flashIconMode = false;
     private int mCameraId = 0;
@@ -147,6 +149,11 @@ public class CameraActivity extends AppCompatActivity implements CameraBridgeVie
                 showGallery();
             }
         });
+
+        Upper = findViewById(R.id.Upper);
+        Upper.setBackgroundColor(scheme[0]);
+        Down = findViewById(R.id.Down);
+        Down.setBackgroundColor(scheme[1]);
 
         //deleteImages();
     }
@@ -377,7 +384,7 @@ public class CameraActivity extends AppCompatActivity implements CameraBridgeVie
         //Core.rotate(mRgba, mRgba, Core.ROTATE_90_COUNTERCLOCKWISE);
 
         Mat overlay = mRgba.clone();
-        double alpha = 0.4;
+        double alpha = 0.5;
         Imgproc.rectangle(overlay, new Point(centerRect.x, centerRect.y), new Point(centerRect.x + centerRect.width, centerRect.y + centerRect.height), schemeColor,-1);
         Core.addWeighted( overlay, alpha, mRgba, 1 - alpha, 0.0, mRgba);
         overlay.release();
