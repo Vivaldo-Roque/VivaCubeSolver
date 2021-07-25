@@ -1,75 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:background="@color/gray"
+    android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <Button
+        android:id="@+id/main_open_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:background="@drawable/rounded_button"
+        android:text="Open Camera"
+        app:layout_constraintBottom_toTopOf="@+id/main_solve_images"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/main_solve_images"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:background="@drawable/rounded_button"
+        android:text="Solve images"
+        app:layout_constraintBottom_toTopOf="@+id/main_settings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_open_camera" />
+
+    <Button
+        android:id="@+id/main_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:background="@drawable/rounded_button"
+        android:text="Settings"
+        app:layout_constraintBottom_toTopOf="@+id/main_about"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_solve_images" />
+
+    <Button
+        android:id="@+id/main_about"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:background="@drawable/rounded_button"
+        android:text="About"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_settings" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/logo"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:layout_marginBottom="20dp">
-        <de.hdodenhof.circleimageview.CircleImageView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/profile_image"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:src="@drawable/logo"
-            app:civ_border_width="5dp"
-            app:civ_border_color="#FF000000"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="VivaCubeSolver"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="25sp"
-            />
-    </LinearLayout>
+        android:text="VivaCubeSolver"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/main_open_camera"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_image" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginTop="25dp"
-        android:id="@+id/main_open_camera"
-        android:background="@drawable/rounded_button"
-        android:text="Open Camera" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginTop="25dp"
-        android:id="@+id/main_solve_images"
-        android:background="@drawable/rounded_button"
-        android:text="Solve images" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginTop="25dp"
-        android:id="@+id/main_settings"
-        android:background="@drawable/rounded_button"
-        android:text="Settings" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginTop="25dp"
-        android:id="@+id/main_about"
-        android:background="@drawable/rounded_button"
-        android:text="About" />
-
-<!--    <Button-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:id="@+id/camera_button5"-->
-<!--        android:text="Animated cube" />-->
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

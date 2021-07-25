@@ -30,6 +30,7 @@ import androidx.core.app.ActivityCompat;
 
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.CameraBridgeViewBase;
+import org.opencv.android.FpsMeter;
 import org.opencv.android.LoaderCallbackInterface;
 import org.opencv.android.OpenCVLoader;
 import org.opencv.core.Core;
@@ -40,6 +41,7 @@ import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
+import org.opencv.videoio.Videoio;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -76,6 +78,7 @@ public class CameraActivity extends AppCompatActivity implements CameraBridgeVie
     private TextView counter_text;
     private TextView Upper;
     private TextView Down;
+    private TextView mFps;
     private int take_image = 0;
     private boolean flashIconMode = false;
     private int mCameraId = 0;
@@ -92,6 +95,7 @@ public class CameraActivity extends AppCompatActivity implements CameraBridgeVie
     private Boolean centerDetected = false;
     private Rect centerRect = new Rect();
     private Mat mask = new Mat();
+    private MyFpsMeter mFpsMeter = null;
 
     public CameraActivity() {
         Log.d(tag, "Instantiated now" + this.getClass());
@@ -156,6 +160,8 @@ public class CameraActivity extends AppCompatActivity implements CameraBridgeVie
         Down.setBackgroundColor(scheme[1]);
 
         //deleteImages();
+        //mOpenCvCameraView.enableFpsMeter();
+        mFps = findViewById(R.id.myfps);
     }
 
     private void showGallery() {
@@ -252,12 +258,16 @@ public class CameraActivity extends AppCompatActivity implements CameraBridgeVie
         }
     }
 
+
+
+    @Override
     public void onCameraViewStarted(int width, int height) {
         mRgba = new Mat(height, width, CV_8UC4);
         //mCameraStarted = true;
         setupMenuItems();
     }
 
+    @Override
     public void onCameraViewStopped() {
         mRgba.release();
     }
@@ -272,6 +282,8 @@ public class CameraActivity extends AppCompatActivity implements CameraBridgeVie
     @RequiresApi(api = Build.VERSION_CODES.O)
     public Mat onCameraFrame(CameraBridgeViewBase.CvCameraViewFrame inputFrame) {
         mRgba = inputFrame.rgba();
+
+        enableFPS(mRgba.width(), mRgba.height());
 
         if (mCameraId == 1) {
             Core.flip(mRgba, mRgba, 1);
@@ -296,24 +308,26 @@ public class CameraActivity extends AppCompatActivity implements CameraBridgeVie
         Point rect_point2 = new Point((h + h_rect) / 2, (h + h_rect) / 2);
         Rect rect1 = new Rect(rect_point1, rect_point2);
 
+        int thickness = h / 12;
+
         //Imgproc.rectangle (mRgba, new Point(factor,factor), new Point(factor*4,factor*4), color, 25);
-        Imgproc.rectangle(mRgba, rect1, black, 30);
+        Imgproc.rectangle(mRgba, rect1, black, thickness);
 
-        Imgproc.line(mRgba, new Point(((h - h_rect) / 2) * 3, (h - h_rect) / 2), new Point(((h - h_rect) / 2) * 3, (h + h_rect) / 2), black, 30, 8);
-        Imgproc.line(mRgba, new Point(((h - h_rect) / 2) * 5, (h - h_rect) / 2), new Point(((h - h_rect) / 2) * 5, (h + h_rect) / 2), black, 30, 8);
+        Imgproc.line(mRgba, new Point(((h - h_rect) / 2) * 3, (h - h_rect) / 2), new Point(((h - h_rect) / 2) * 3, (h + h_rect) / 2), black, thickness, 8);
+        Imgproc.line(mRgba, new Point(((h - h_rect) / 2) * 5, (h - h_rect) / 2), new Point(((h - h_rect) / 2) * 5, (h + h_rect) / 2), black, thickness, 8);
 
-        Imgproc.line(mRgba, new Point(((h - h_rect) / 2), ((h - h_rect) / 2) * 3), new Point((h + h_rect) / 2, ((h - h_rect) / 2) * 3), black, 30, 8);
-        Imgproc.line(mRgba, new Point(((h - h_rect) / 2), ((h - h_rect) / 2) * 5), new Point((h + h_rect) / 2, ((h - h_rect) / 2) * 5), black, 30, 8);
+        Imgproc.line(mRgba, new Point(((h - h_rect) / 2), ((h - h_rect) / 2) * 3), new Point((h + h_rect) / 2, ((h - h_rect) / 2) * 3), black, thickness, 8);
+        Imgproc.line(mRgba, new Point(((h - h_rect) / 2), ((h - h_rect) / 2) * 5), new Point((h + h_rect) / 2, ((h - h_rect) / 2) * 5), black, thickness, 8);
 
         if(centerDetected == false)
         {
-            Imgproc.rectangle(mask, rect1, black, 30);
+            Imgproc.rectangle(mask, rect1, black, thickness);
 
-            Imgproc.line(mask, new Point(((h - h_rect) / 2) * 3, (h - h_rect) / 2), new Point(((h - h_rect) / 2) * 3, (h + h_rect) / 2), black, 30, 8);
-            Imgproc.line(mask, new Point(((h - h_rect) / 2) * 5, (h - h_rect) / 2), new Point(((h - h_rect) / 2) * 5, (h + h_rect) / 2), black, 30, 8);
+            Imgproc.line(mask, new Point(((h - h_rect) / 2) * 3, (h - h_rect) / 2), new Point(((h - h_rect) / 2) * 3, (h + h_rect) / 2), black, thickness, 8);
+            Imgproc.line(mask, new Point(((h - h_rect) / 2) * 5, (h - h_rect) / 2), new Point(((h - h_rect) / 2) * 5, (h + h_rect) / 2), black, thickness, 8);
 
-            Imgproc.line(mask, new Point(((h - h_rect) / 2), ((h - h_rect) / 2) * 3), new Point((h + h_rect) / 2, ((h - h_rect) / 2) * 3), black, 30, 8);
-            Imgproc.line(mask, new Point(((h - h_rect) / 2), ((h - h_rect) / 2) * 5), new Point((h + h_rect) / 2, ((h - h_rect) / 2) * 5), black, 30, 8);
+            Imgproc.line(mask, new Point(((h - h_rect) / 2), ((h - h_rect) / 2) * 3), new Point((h + h_rect) / 2, ((h - h_rect) / 2) * 3), black, thickness, 8);
+            Imgproc.line(mask, new Point(((h - h_rect) / 2), ((h - h_rect) / 2) * 5), new Point((h + h_rect) / 2, ((h - h_rect) / 2) * 5), black, thickness, 8);
 
             Mat mGrayRgba = new Mat();
             Imgproc.cvtColor(mask, mGrayRgba,Imgproc.COLOR_BGRA2GRAY);
@@ -392,8 +406,11 @@ public class CameraActivity extends AppCompatActivity implements CameraBridgeVie
         return mRgba;
     }
 
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     private int take_picture_function_rgb(int take_image, Mat mRgba) {
+
+        System.out.println(Videoio.CAP_PROP_FPS);
 
         if (take_image == 1) {
             Mat save_mat = new Mat();
@@ -452,6 +469,19 @@ public class CameraActivity extends AppCompatActivity implements CameraBridgeVie
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.createNotificationChannel(notificationChannel);
         notificationManager.notify(1, notification);
+    }
+
+    public void enableFPS(int width, int height)
+    {
+        if(mFpsMeter == null)
+        {
+            mFpsMeter = new MyFpsMeter();
+            mFpsMeter.setResolution(width, height);
+        }
+        if(mFpsMeter != null)
+        {
+            mFps.setText(mFpsMeter.measure());
+        }
     }
 
     private void setupMenuItems() {

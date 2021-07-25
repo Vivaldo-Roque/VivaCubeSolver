@@ -4,9 +4,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.Log;
-
 import org.opencv.core.Core;
-
 import java.text.DecimalFormat;
 
 public class FpsMeter {
@@ -45,9 +43,13 @@ public class FpsMeter {
                 double fps = STEP * mFrequency / (time - mprevFrameTime);
                 mprevFrameTime = time;
                 if (mWidth != 0 && mHeight != 0)
+                {
                     mStrfps = FPS_FORMAT.format(fps) + " FPS@" + Integer.valueOf(mWidth) + "x" + Integer.valueOf(mHeight);
+                }
                 else
+                {
                     mStrfps = FPS_FORMAT.format(fps) + " FPS";
+                }
                 Log.i(TAG, mStrfps);
             }
         }
