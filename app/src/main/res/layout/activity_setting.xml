@@ -7,6 +7,22 @@
     android:background="@color/gray"
     tools:context=".SettingActivity">
 
+    <TextView
+        android:id="@+id/colorsTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="Esquema de cores"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttons"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
     <LinearLayout
         android:id="@+id/buttons"
         android:layout_width="300dp"
@@ -18,20 +34,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/buttons"
-            android:layout_centerInParent="true"
-            android:layout_marginBottom="10dp"
-            android:gravity="center"
-            android:text="Esquema de cores"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="30sp" />
+        app:layout_constraintTop_toBottomOf="@id/colorsTitle">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -142,7 +145,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:layout_marginBottom="20dp"
             android:orientation="horizontal">
 
             <Button
