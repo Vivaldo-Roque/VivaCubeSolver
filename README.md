@@ -1,28 +1,50 @@
+<h1 align="center">
+  <br>
+  <img src="https://github.com/Vivaldo-Roque/VivaCubeSolver_2/blob/master/img/vcs.png" alt="Tic Tac Toe" width="200">
+  <br>
+  VivaCubeSolver
+  <br>
+</h1>
 
-# VivaCubeSolver
+Application capable of solving the magic cube from images captured by the camera.
 
-## Application capable of solving the magic cube from images captured by the camera.
+[README em Português](README_PT.md)
 
-project not yet complete.<br />
+<h2 align="center">
+  <br>
+  <img src="https://github.com/Vivaldo-Roque/VivaCubeSolver_2/blob/master/img/ex3.jpg" alt="Example 1">
+  <br>
+</h2>
 
-## How to use.
+<h2 align="center">
+  <br>
+  <img src="https://github.com/Vivaldo-Roque/VivaCubeSolver_2/blob/master/img/ex2.jpg" alt="Example 2">
+  <br>
+</h2>
 
-Working on it!<br />
+<h2 align="center">
+  <br>
+  <img src="https://github.com/Vivaldo-Roque/VivaCubeSolver_2/blob/master/img/ex1.jpg" alt="Example 3">
+  <br>
+</h2>
 
-## Release APK.
+project not yet complete.
 
-But you can test the launch APK ==> https://github.com/Vivaldo-Roque/VivaCubeSolver_2/blob/master/app/release/app-release.apk <br />
+## Usage
+
+Working on it!
+
+## Release APK
+
+[VivaCubeSolver.apk](app/release/app-release.apk)
 
 ## Used libraries
 
-Rubik's Cube tracker by [@dwalton76](https://github.com/dwalton76/rubiks-cube-tracker).<br />
-
-Rubik's Cube color solver by [@dwalton76](https://github.com/dwalton76/rubiks-color-resolver).<br />
-
-Rubik's Cube solver by [@cs0x7f](https://github.com/cs0x7f/min2phase).<br />
-
-Rubik's Cube rendering and interaction library by [@cjurjiu](https://github.com/cjurjiu/AnimCubeAndroid).<br />
-
-Library for image processing => [OpenCV 4.2.0](https://sourceforge.net/projects/opencvlibrary/files/4.2.0/opencv-4.2.0-android-sdk.zip/download).<br />
-
-Python SDK for Android by [Chaquopy](https://chaquo.com/chaquopy/).<br />
+| Library | Repository |
+| ------ | ------ |
+| Rubik's Cube tracker | [@dwalton76](https://github.com/dwalton76/rubiks-cube-tracker) |
+| Rubik's Cube color solver | [@dwalton76](https://github.com/dwalton76/rubiks-color-resolver) |
+| Rubik's Cube solver | [@cs0x7f](https://github.com/cs0x7f/min2phase) |
+| Rubik's Cube rendering and interaction library | [@cjurjiu](https://github.com/cjurjiu/AnimCubeAndroid) |
+| Library for image processing | [OpenCV 4.2.0](https://sourceforge.net/projects/opencvlibrary/files/4.2.0/opencv-4.2.0-android-sdk.zip/download) |
+| Python SDK for Android | [Chaquopy](https://chaquo.com/chaquopy/) |
